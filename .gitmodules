@@ -1,0 +1,15 @@
+[submodule "utils"]
+	path = utils
+	url = git://sweble.org/git/utils.git
+[submodule "tooling"]
+	path = tooling
+	url = git://sweble.org/git/tooling.git
+[submodule "sweble"]
+	path = sweble
+	url = git://sweble.org/git/sweble.git
+[submodule "sweble-wikitext"]
+	path = sweble-wikitext
+	url = git://sweble.org/git/sweble-wikitext.git
+[submodule "parser-toolkit"]
+	path = parser-toolkit
+	url = git://sweble.org/git/parser-toolkit.git

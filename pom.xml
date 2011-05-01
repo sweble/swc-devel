@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Parent POM: Tooling -->
+
+  <parent>
+    <groupId>de.fau.cs.osr</groupId>
+    <artifactId>tooling</artifactId>
+    <version>1.0.4</version>
+  </parent>
+
+  <!-- This POM: Sweble Wikitext Components Development -->
+
+  <groupId>org.sweble</groupId>
+  <artifactId>swc-devel</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <name>Sweble Wikitext Components Development Meta POM</name>
+  <url>http://osr.informatik.uni-erlangen.de</url>
+  <inceptionYear>2011</inceptionYear>
+  <description>
+    This is a POM to group those projects into submodules which constitute or
+    are needed for the development of the Sweble Wikitext Components Project. 
+    This POM is necessary when using the Maven Eclipse plugin to properly 
+    set-up inter-project dependencies in the generated Eclipse projects.
+  </description>
+
+  <!-- ==[ Submodules ]===================================================== -->
+
+  <modules>
+    <module>tooling</module>
+    <module>utils</module>
+    <module>parser-toolkit</module>
+    <module>sweble</module>
+    <module>sweble-wikitext</module>
+  </modules>
+
+  <build>
+
+    <!-- ==[ Plugin Configuration ]========================================= -->
+
+    <plugins>
+
+      <!-- Check and format license headers -->
+      <plugin>
+        <groupId>com.mycila.maven-license-plugin</groupId>
+        <artifactId>maven-license-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+  <!-- ==[ Environment Settings ]=========================================== -->
+
+  <scm>
+    <connection>scm:git://sweble.org/git/swc-devel.git</connection>
+    <developerConnection>scm:git:ssh://gitosis@sweble.org/swc-devel.git</developerConnection>
+    <url>http://sweble.org/gitweb/?p=swc-devel.git;a=summary</url>
+  </scm>
+
+  <repositories>
+    <!-- Minimal set-up needed to retrieve parent POM -->
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </snapshots>
+      <id>osr-public-repositories</id>
+      <name>OSR Public Repositories</name>
+      <url>http://mojo.informatik.uni-erlangen.de/nexus/content/repositories/public</url>
+    </repository>
+  </repositories>
+
+</project>
