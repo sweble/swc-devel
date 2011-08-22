@@ -52,8 +52,22 @@
         </configuration>
       </plugin>
 
-    </plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>aggregate</id>
+            <goals>
+              <goal>aggregate</goal>
+              <goal>aggregate-jar</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
 
+    </plugins>
   </build>
 
   <!-- ==[ Environment Settings ]=========================================== -->
