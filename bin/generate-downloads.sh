@@ -19,7 +19,11 @@ fi
 
 DATE=$(date -u +%Y%m%d-%H%M)
 
-TARGET="downloads/${RELEASE_NAME}/${CURRENT_BRANCH}-${VERSION}/${DATE}-${COMMIT_ID}"
+BRANCH_DIR="downloads/${RELEASE_NAME}/${CURRENT_BRANCH}-${VERSION}"
+
+COMMIT_DIR_NAME="${DATE}-${COMMIT_ID}"
+
+TARGET="${BRANCH_DIR}/${COMMIT_DIR_NAME}"
 
 # ------------------------------------------------------------------------------
 
@@ -42,6 +46,8 @@ cp target/${RELEASE_NAME}-*-{javadoc,sources}.jar "${TARGET}"
 cp sweble-wikitext/swc-parser-lazy/target/swc-parser-lazy-*-jar-with-dependencies.jar "${TARGET}/"
 
 cp sweble-wikitext/swc-engine/target/swc-engine-*-jar-with-dependencies.jar "${TARGET}/"
+
+ln -s "${COMMIT_DIR_NAME}" "${BRANCH_DIR}/latest"
 
 # ------------------------------------------------------------------------------
 

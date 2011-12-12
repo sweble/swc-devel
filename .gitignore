@@ -1,4 +1,7 @@
 _/
 target/
+downloads/
+javadoc/
+publish.vars
 *~
 
