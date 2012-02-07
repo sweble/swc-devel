@@ -22,8 +22,8 @@
   <inceptionYear>2011</inceptionYear>
   <description>
     This is a POM to group those projects into submodules which constitute or
-    are needed for the development of the Sweble Wikitext Components Project. 
-    This POM is necessary when using the Maven Eclipse plugin to properly 
+    are needed for the development of the Sweble Wikitext Components Project.
+    This POM is necessary when using the Maven Eclipse plugin to properly
     set-up inter-project dependencies in the generated Eclipse projects.
   </description>
 
