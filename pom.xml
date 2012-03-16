@@ -8,6 +8,7 @@
     <groupId>de.fau.cs.osr</groupId>
     <artifactId>tooling</artifactId>
     <version>1.0.4</version>
+    <relativePath>tooling/pom.xml</relativePath>
   </parent>
 
   <!-- This POM: Sweble Wikitext Components Development -->
@@ -22,8 +23,8 @@
   <inceptionYear>2011</inceptionYear>
   <description>
     This is a POM to group those projects into submodules which constitute or
-    are needed for the development of the Sweble Wikitext Components Project. 
-    This POM is necessary when using the Maven Eclipse plugin to properly 
+    are needed for the development of the Sweble Wikitext Components Project.
+    This POM is necessary when using the Maven Eclipse plugin to properly
     set-up inter-project dependencies in the generated Eclipse projects.
   </description>
 
@@ -43,15 +44,7 @@
 
     <plugins>
 
-      <!-- Check and format license headers -->
-      <plugin>
-        <groupId>com.mycila.maven-license-plugin</groupId>
-        <artifactId>maven-license-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin>
-
+      <!-- Aggregate javadocs for all submodules -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -78,24 +71,5 @@
     <developerConnection>scm:git:ssh://gitosis@sweble.org/swc-devel.git</developerConnection>
     <url>http://sweble.org/gitweb/?p=swc-devel.git;a=summary</url>
   </scm>
-
-  <repositories>
-    <!-- Minimal set-up needed to retrieve parent POM -->
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </snapshots>
-      <id>osr-public-repositories</id>
-      <name>OSR Public Repositories</name>
-      <url>http://mojo.informatik.uni-erlangen.de/nexus/content/repositories/public</url>
-    </repository>
-  </repositories>
 
 </project>
