@@ -7,7 +7,7 @@
   <parent>
     <groupId>de.fau.cs.osr</groupId>
     <artifactId>tooling</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.4.1-SNAPSHOT</version>
     <relativePath>tooling/pom.xml</relativePath>
   </parent>
 
@@ -15,7 +15,7 @@
 
   <groupId>org.sweble</groupId>
   <artifactId>swc-devel</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Sweble Wikitext Components Development Meta POM</name>
@@ -90,4 +90,28 @@
     <url>http://sweble.org/gitweb/?p=swc-devel.git;a=summary</url>
   </scm>
 
+  <!-- ==[ Profiles ]======================================================= -->
+
+  <profiles>
+    <profile>
+      <id>dont-sign</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+
+          <!-- Don't sign artifacts -->
+          <plugin>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${version.plugin.gpg}</version>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
+
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
