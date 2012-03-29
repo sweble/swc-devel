@@ -19,7 +19,6 @@
   <packaging>pom</packaging>
 
   <name>Sweble Wikitext Components Development Meta POM</name>
-  <url>http://osr.informatik.uni-erlangen.de</url>
   <inceptionYear>2011</inceptionYear>
   <description>
     This is a POM to group those projects into submodules which constitute or
@@ -56,6 +55,25 @@
               <goal>aggregate-jar</goal>
             </goals>
             <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Maven GPG Plugin -->
+      <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>${version.plugin.gpg}</version>
+        <configuration>
+          <!-- OSR Group <osr@i2.informatik.uni-erlangen.de> -->
+          <keyname>44E980E1</keyname>
+        </configuration>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
