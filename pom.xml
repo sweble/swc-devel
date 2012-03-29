@@ -8,6 +8,7 @@
     <groupId>de.fau.cs.osr</groupId>
     <artifactId>tooling</artifactId>
     <version>1.0.5-SNAPSHOT</version>
+    <relativePath>tooling/pom.xml</relativePath>
   </parent>
 
   <!-- This POM: Sweble Wikitext Components Development -->
@@ -18,7 +19,6 @@
   <packaging>pom</packaging>
 
   <name>Sweble Wikitext Components Development Meta POM</name>
-  <url>http://osr.informatik.uni-erlangen.de</url>
   <inceptionYear>2011</inceptionYear>
   <description>
     This is a POM to group those projects into submodules which constitute or
@@ -43,13 +43,39 @@
 
     <plugins>
 
-      <!-- Check and format license headers -->
+      <!-- Aggregate javadocs for all submodules -->
       <plugin>
-        <groupId>com.mycila.maven-license-plugin</groupId>
-        <artifactId>maven-license-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>aggregate</id>
+            <goals>
+              <goal>aggregate</goal>
+              <goal>aggregate-jar</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Maven GPG Plugin -->
+      <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>${version.plugin.gpg}</version>
         <configuration>
-          <skip>true</skip>
+          <!-- OSR Group <osr@i2.informatik.uni-erlangen.de> -->
+          <keyname>44E980E1</keyname>
         </configuration>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>
@@ -77,24 +103,5 @@
     <developerConnection>scm:git:ssh://gitosis@sweble.org/swc-devel.git</developerConnection>
     <url>http://sweble.org/gitweb/?p=swc-devel.git;a=summary</url>
   </scm>
-
-  <repositories>
-    <!-- Minimal set-up needed to retrieve parent POM -->
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>warn</checksumPolicy>
-      </snapshots>
-      <id>osr-public-repositories</id>
-      <name>OSR Public Repositories</name>
-      <url>http://mojo.informatik.uni-erlangen.de/nexus/content/repositories/public</url>
-    </repository>
-  </repositories>
 
 </project>

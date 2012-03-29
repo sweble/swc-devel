@@ -1,0 +1,4 @@
+#!/bin/bash
+
+CMD="mvn site:stage -DstagingDirectory=`pwd`/target/staging/"
+git submodule foreach "$CMD"
