@@ -35,6 +35,7 @@
     <module>parser-toolkit</module>
     <module>sweble</module>
     <module>sweble-wikitext</module>
+    <module>sweble-wom</module>
   </modules>
 
   <build>

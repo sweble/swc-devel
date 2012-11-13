@@ -13,3 +13,6 @@
 [submodule "parser-toolkit"]
 	path = parser-toolkit
 	url = ../parser-toolkit.git
+[submodule "sweble-wom"]
+	path = sweble-wom
+	url = ../sweble-wom.git
