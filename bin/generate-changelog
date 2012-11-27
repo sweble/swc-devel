@@ -16,7 +16,7 @@ fi
 
 git submodule summary | grep -e '^\*' | while read SUBMODULE; do
 	PROJECT=$(echo "$SUBMODULE" | sed -e 's/^\*\s\+\(\S\+\).*/\1/')
-	CRANGE=$(echo "$SUBMODULE" | sed -e 's/^\*\s\+\S\+\s\+\(\S\+\).*/\1/')
+	CRANGE=$(echo "$SUBMODULE" | sed -e 's/^\*\s\+\S\+\s\+\(\S\+\).*/\1/' | sed -e 's/^0\+\.\.\.//')
 	echo "$SUBMODULE"
 	pushd "$PROJECT" &>/dev/null
 	echo "$SUBMODULE" >> ../"$MSGFILE"
