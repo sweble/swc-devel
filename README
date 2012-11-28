@@ -1,0 +1,50 @@
+== Maven Build Profiles ==
+
+=== sign ===
+
+Sign artifacts
+
+=== quick ===
+
+Makes <code>mvn install</code> run a lot faster.
+
+* Skip tests
+* Skip license header checks
+* Only generate minimal site
+
+=== build-aggregates ===
+
+Put all libraries in a jar which can then run on its own.
+The jar is call <code>*-with-dependencies</code>.
+
+=== build-examples  ===
+
+Generates a maven archetype and an eclipse project for each example project.
+
+'''IMPORTANT:''' Before running maven with this profile enabled make sure 
+<code>mvn install -Pbuild-aggregates</code> has been run. The Eclipse project 
+generation requires a jar-with-dependencies which has to be generated and 
+installed by a previous maven run.
+
+== Build Tasks ==
+
+=== Deploy Example Archetypes ===
+
+If you want to deploy example archetypes export the following variable:
+
+ export DEPLOY_EXAMPLE_ARCHETYPES="-Prelease -Psign"
+
+then
+
+ mvn -Pbuild-examples package
+
+=== Deploy to Different Repository  ===
+
+If you want to deploy to a local repository (for testing/staging), add
+
+ -DaltDeploymentRepository=sonatype-nexus-staging::default::file://[PATH TO LOCAL REPO]"
+
+to <code>mvn &lt;goal></code>
+
+When deploying examples, remeber to also add the above option to
+the variable <code>DEPLOY_EXAMPLE_ARCHETYPES</code>.
