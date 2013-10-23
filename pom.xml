@@ -38,46 +38,20 @@
     <module>sweble-wom</module>
   </modules>
 
+  <!-- ==[ Properties ]===================================================== -->
+
+  <properties>
+
+    <!-- Configuration of parent POMs -->
+    <maven-site-plugin.skip>true</maven-site-plugin.skip>
+
+  </properties>
+
   <build>
 
     <!-- ==[ Plugin Configuration ]========================================= -->
 
     <plugins>
-
-      <!-- Aggregate javadocs for all submodules -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>aggregate</id>
-            <goals>
-              <goal>aggregate</goal>
-              <goal>aggregate-jar</goal>
-            </goals>
-            <phase>package</phase>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Maven GPG Plugin -->
-      <plugin>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>${version.plugin.gpg}</version>
-        <configuration>
-          <!-- OSR Group <osr@i2.informatik.uni-erlangen.de> -->
-          <keyname>44E980E1</keyname>
-        </configuration>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
 
     </plugins>
   </build>
@@ -93,25 +67,58 @@
   <!-- ==[ Profiles ]======================================================= -->
 
   <profiles>
+
     <profile>
-      <id>dont-sign</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
+      <id>build-aggregates</id>
       <build>
         <plugins>
 
-          <!-- Don't sign artifacts -->
+          <!--
+            Maven Javadoc Plugin.
+            Build a aggregate JAR archive for all modules as well as aggregate
+            HTML javadoc for all modules. This is done in the "site" phase.
+          -->
           <plugin>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>${version.plugin.gpg}</version>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <inherited>false</inherited>
+            <executions>
+              <execution>
+                <id>javadoc-aggregate</id>
+                <phase>site</phase>
+                <goals>
+                  <!-- The individual HTML files -->
+                  <goal>aggregate</goal>
+                  <!-- Packaged as JAR -->
+                  <goal>aggregate-jar</goal>
+                </goals>
+              </execution>
+            </executions>
             <configuration>
-              <skip>true</skip>
+              <quiet>true</quiet>
             </configuration>
+          </plugin>
+
+          <!--
+            Maven Source Plugin.
+            Build a aggregate JAR archive for all modules as well as aggregate
+            HTML javadoc for all modules. This is done in the "site" phase.
+          -->
+          <plugin>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sources-aggregate</id>
+                <phase>site</phase>
+                <goals>
+                  <goal>aggregate</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
 
         </plugins>
       </build>
     </profile>
+
   </profiles>
 </project>
