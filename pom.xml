@@ -75,8 +75,9 @@
 
           <!--
             Maven Javadoc Plugin.
-            Build a aggregate JAR archive for all modules as well as aggregate
-            HTML javadoc for all modules. This is done in the "package" phase.
+            Build a aggregate javadoc JAR archive for all modules as well as
+            aggregate HTML javadoc for all modules. This is done in the
+            "package" phase.
           -->
           <plugin>
             <artifactId>maven-javadoc-plugin</artifactId>
@@ -100,8 +101,8 @@
 
           <!--
             Maven Source Plugin.
-            Build a aggregate JAR archive for all modules as well as aggregate
-            HTML javadoc for all modules. This is done in the "package" phase.
+            Build a aggregate sources JAR archive for all modules. This is done
+            in the "package" phase.
           -->
           <plugin>
             <artifactId>maven-source-plugin</artifactId>

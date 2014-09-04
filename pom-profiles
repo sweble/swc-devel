@@ -1,0 +1,72 @@
+
+
+
+git-info (tooling)
+--------
+
+Turn on git information extraction
+
+(git-commit-id-plugin)
+
+
+
+sign (tooling)
+----
+
+Sign the generated artifacts. Usually used in conjunction with the "release"
+profile to deploy artifacts to Maven Central. The key name has to be given as
+option on the command line and the key should be unlocked and held by the gpg
+agent (-Dgpg.keyname=...).
+
+(maven-gpg-plugin)
+
+
+
+release (tooling)
+-------
+
+This profile is used to release artifacts to Maven Central. Each module has to
+build its main artifacts including javadoc and source. Signing of the artifacts
+is also required BUT NOT DONE by this profile (see "sign" profile).
+
+(maven-javadoc-plugin, maven-source-plugin, maven-deploy-plugin)
+
+
+
+quick (tooling)
+-----
+
+- Disable tests
+- Don't check and format license headers
+- Don't get Git commit information
+- Only generate minimal site.
+
+(...)
+
+
+
+build-aggregates (swc-devel)
+----------------
+
+- Build a aggregate javadoc JAR archive for all modules as well as aggregate
+  HTML javadoc for all modules. This is done in the "package" phase.
+- Build a aggregate sources JAR archive for all modules. This is done in the
+  "package" phase.
+
+(maven-javadoc-plugin, maven-source-plugin)
+
+
+
+build-aggregates (sweble-wom, swc-wom, swc-parser-lazy, swc-dumpreader, swc-engine, swc-article-cruncher)
+----------------
+
+Generate a fat jar
+
+(maven-assembly-plugin)
+
+
+
+build-examples
+--------------
+
+Archetype magic
