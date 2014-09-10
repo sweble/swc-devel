@@ -4,3 +4,5 @@ downloads/
 javadoc/
 publish.vars
 *~
+.project
+.settings/
