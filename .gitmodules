@@ -1,15 +1,18 @@
-[submodule "utils"]
-	path = utils
-	url = ../utils.git
 [submodule "tooling"]
 	path = tooling
 	url = ../tooling.git
+[submodule "utils"]
+	path = utils
+	url = ../utils.git
+[submodule "parser-toolkit"]
+	path = parser-toolkit
+	url = ../parser-toolkit.git
 [submodule "sweble"]
 	path = sweble
 	url = ../sweble.git
 [submodule "sweble-wikitext"]
 	path = sweble-wikitext
 	url = ../sweble-wikitext.git
-[submodule "parser-toolkit"]
-	path = parser-toolkit
-	url = ../parser-toolkit.git
+[submodule "sweble-wom3"]
+	path = sweble-wom3
+	url = ../sweble-wom3.git
