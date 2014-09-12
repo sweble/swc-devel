@@ -38,7 +38,7 @@ git submodule summary | grep -e '^\*' | while read SUBMODULE; do
 	pushd "$PROJECT" &>/dev/null
 	echo "$SUBMODULE" >> ../"$MSGFILE"
 	echo >> ../"$MSGFILE"
-	git log "$CRANGE" | grep -ve '^Author:\|Date:\|Merge:' | sed -e 's/\(.*\)/    \1/' >> ../"$MSGFILE"
+	git log --first-parent "$CRANGE" | grep -ve '^Author:\|Date:\|Merge:' | sed -e 's/\(.*\)/    \1/' >> ../"$MSGFILE"
 	echo >> ../"$MSGFILE"
 	echo >> ../"$MSGFILE"
 	popd &>/dev/null
