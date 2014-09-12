@@ -1,0 +1,28 @@
+== Maven Build Profiles ==
+
+=== sign ===
+
+Sign artifacts
+
+=== quick ===
+
+Makes <code>mvn install</code> run a lot faster.
+
+* Skip tests
+* Skip license header checks
+* Only generate minimal site
+
+=== build-aggregates ===
+
+Put all libraries in a jar which can then run on its own.
+The jar is call <code>*-with-dependencies</code>.
+
+== Build Tasks ==
+
+=== Deploy to Different Repository  ===
+
+If you want to deploy to a local repository (for testing/staging), add
+
+ -DaltDeploymentRepository=sonatype-nexus-staging::default::file://[PATH TO LOCAL REPO]"
+
+to <code>mvn &lt;goal></code>
