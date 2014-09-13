@@ -35,6 +35,7 @@ agent (-Dgpg.keyname=...).
 ### release
 
 **Defined in:** tooling
+
 **Plugins:** maven-javadoc-plugin, maven-source-plugin, maven-deploy-plugin
 
 This profile is used to release artifacts to Maven Central. Each module has to
