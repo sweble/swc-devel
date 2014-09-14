@@ -18,5 +18,4 @@
 	url = ../sweble-wom3.git
 [submodule "sweble-engine"]
 	path = sweble-engine
-	url = git@sweble.org:sweble-engine.git
-	branch = develop
+	url = ../sweble-engine.git
