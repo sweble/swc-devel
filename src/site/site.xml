@@ -51,9 +51,9 @@
 
     <breadcrumbs>
       <item name="Sweble" href="http://sweble.org" />
-      <item name="Documentation" href="http://sweble.org/doc" img="" />
-      <item name="Tooling" href="http://sweble.org/sites/swc-devel/develop-latest/tooling" img="" />
-      <item name="Development Meta POM" href="http://sweble.org/sites/swc-devel/develop-latest/tooling/swc-devel" img="" />
+      <item name="Documentation" href="http://sweble.org/doc" />
+      <item name="Tooling" href="http://sweble.org/sites/swc-devel/develop-latest/tooling" />
+      <item name="Development Meta POM" href="http://sweble.org/sites/swc-devel/develop-latest/tooling/swc-devel" />
     </breadcrumbs>
 
     <menu ref="parent"/>
