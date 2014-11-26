@@ -54,6 +54,8 @@
     <module>sweble</module>
     <module>sweble-wikitext</module>
     <module>sweble-wom3</module>
+    <module>sweble-engine</module>
+    <module>hddiff-project</module>
   </modules>
 
   <!-- ==[ Properties ]===================================================== -->

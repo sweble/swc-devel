@@ -16,3 +16,9 @@
 [submodule "sweble-wom3"]
 	path = sweble-wom3
 	url = ../sweble-wom3.git
+[submodule "hddiff-project"]
+	path = hddiff-project
+	url = ../hddiff-project.git
+[submodule "sweble-engine"]
+	path = sweble-engine
+	url = ../sweble-engine.git
