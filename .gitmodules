@@ -20,5 +20,5 @@
 	path = sweble-engine
 	url = ../sweble-engine.git
 [submodule "hddiff-project"]
-	path = hddiff-project
+	path = hddiff
 	url = ../hddiff.git
