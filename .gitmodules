@@ -21,4 +21,4 @@
 	url = ../sweble-engine.git
 [submodule "hddiff-project"]
 	path = hddiff-project
-	url = ../hddiff-project.git
+	url = ../hddiff.git
